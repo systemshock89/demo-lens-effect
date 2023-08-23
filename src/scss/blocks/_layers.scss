@@ -1,0 +1,117 @@
+// logo
+.logo{
+  --logo-size: calc(var(--index) * 7.8);
+  width: var(--logo-size);
+  height: var(--logo-size);
+  position: absolute;
+  left: calc(51% - calc(var(--logo-size) / 2));
+  top: calc(var(--index) * 2.8);
+  z-index: 1;
+}
+
+// layers
+.layers {
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.layers__container {
+  height: 100dvh;
+  min-height: 500px;
+  transform-style: preserve-3d;
+  // инвертируем оси: по оси X var(--move-y)
+  // а по оси Y  var(--move-x)
+  transform: rotateX(var(--move-y)) rotateY(var(--move-x));
+  will-change: transform; // для лучшей производительности у элемента, где происходит динамический transform
+  transition: transform var(--transition);
+}
+
+.layers__item {
+  position: absolute;
+  inset: -5vw; // чтобы не было черных зазоров при наклоне картинки
+
+  background-size: cover;
+  background-position: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.layers__item_1{
+  background-image: url('../img/layer-1.webp');
+  transform: translateZ(-55px) scale(1.06); // отодвинем слой подальше и увеличим его масштаб
+}
+
+.layers__item_2{
+  background-image: url('../img/layer-2.webp');
+  transform: translateZ(80px) scale(.88); // подвинем остальные слои вверх и уменьшим их масштаь
+}
+
+.layers__item_3 {
+  transform: translateZ(180px) scale(.8);
+}
+
+.layers__item_4 {
+  transform: translateZ(190px) scale(.9);
+}
+
+.layers__item_5{
+  background-image: url('../img/layer-5.webp');
+  transform: translateZ(300px) scale(.9);
+}
+
+.layers__item_6{
+  background-image: url('../img/layer-6.webp');
+  transform: translateZ(380px);
+}
+
+.layers__item_4, .layers__item_5, .layers__item_6 {
+  pointer-events: none;
+}
+
+
+// hero-content
+.hero-content {
+  margin-top: calc(var(--index) * 5.5);
+  text-align: center;
+}
+
+.hero-content__h{
+  font-size: calc(var(--index) * 2.9);
+  text-transform: uppercase;
+  letter-spacing: calc(var(--index) * -.15);
+  line-height: 1.35em;
+  span {
+    display: block;
+  }
+}
+
+.hero-content__p {
+  font-family: 'merriweather-italic-my', 'merriweather-italic-my Fallback', sans-serif;
+  font-size: calc(var(--index) * .73);
+  line-height: 3;
+}
+
+.hero-content__button {
+  font-family: Arial;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: calc(var(--index) * .71);
+  letter-spacing: -.02vw;
+  padding: calc(var(--index) * .7) calc(var(--index) * 1.25);
+  background-color: transparent;
+  color: #fff;
+  border-radius: 10em;
+  border: rgb(255 255 255 / .4) 3px solid;
+  //outline: none;
+  cursor: pointer;
+  margin-top: calc(var(--index) * 2.5);
+  transition: transform 0.1s ease-in-out;
+  &:hover{
+    transform: scale(1.05);
+  }
+  &:active{
+    transform: scale(1);
+  }
+}

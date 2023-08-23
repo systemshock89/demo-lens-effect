@@ -1,0 +1,53 @@
+// подключение шрифтов только woff2
+@mixin font($fname, $fweight, $fstyle, $furl) {
+  @font-face {
+    font-family: $fname;
+    font-display: swap;
+    font-style: $fstyle;
+    font-weight: $fweight;
+    src: url($furl) format('woff2');
+  }
+}
+
+@include font('kamerik-my', 900, normal, '../fonts/kamerik205-heavy.woff2');
+@include font('merriweather-italic-my', 400, normal, '../fonts/merriweather-regular-italic.woff2');
+//@include font('roboto-my', 700, italic, '../fonts/roboto-bolditalic-webfont.woff2');
+
+// Font fallbacks
+// npx fontpie ./src/fonts/roboto-regular-webfont.woff2 -n roboto-my
+// npx fontpie ./src/fonts/roboto-bold-webfont.woff2 -w 700 -n roboto-my
+// npx fontpie ./src/fonts/roboto-italic-webfont.woff2 -s italic -n roboto-my
+// https://github.com/pixel-point/fontpie
+
+@font-face {
+  font-family: 'merriweather-italic-my Fallback';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Arial');
+  ascent-override: 94.10%;
+  descent-override: 26.11%;
+  line-gap-override: 0.00%;
+  size-adjust: 104.57%;
+}
+
+@font-face {
+  font-family: 'kamerik-my Fallback';
+  font-style: normal;
+  font-weight: 900;
+  src: local('Arial Bold');
+  ascent-override: 63.05%;
+  descent-override: 21.02%;
+  line-gap-override: 0.00%;
+  size-adjust: 118.95%;
+}
+
+// font-weight helper:
+
+// 100 Extra Light or Ultra Light;
+// 200 Light or Thin; 300 Book or Demi;
+// 400 Regular or Normal;
+// 500 Medium;
+// 600 Semibold or Demibold;
+// 700 Bold;
+// 800 Black or Extra Bold or Heavy;
+// 900 Extra Black or Fat or Ultra Black

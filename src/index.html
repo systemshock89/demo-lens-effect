@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    @@include('head.html', {
+    "title": "Index page",
+    "description": "description"
+    })
+</head>
+
+<body>
+
+    <img src="img/logo.svg" class="logo" alt="">
+
+    <section class="layers">
+        <div class="layers__container">
+            <div class="layers__item layers__item_1"></div>
+            <div class="layers__item layers__item_2"></div>
+            <div class="layers__item layers__item_3">
+                <div class="hero-content">
+                    <h1 class="hero-content__h">Natural Forest <span>HTML / CSS</span></h1>
+                    <div class="hero-content__p">Creating a beautiful 3D website with a ‘lens effect’</div>
+                    <button class="hero-content__button">Start Learning</button>
+                </div>
+            </div>
+            <div class="layers__item layers__item_4">
+                <canvas class="rain"></canvas>
+            </div>
+            <div class="layers__item layers__item_5"></div>
+            <div class="layers__item layers__item_6"></div>
+        </div>
+    </section>
+
+    <script defer src="js/bundle.min.js"></script>
+
+</body>
+</html>
