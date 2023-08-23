@@ -1,4 +1,4 @@
-import '/src/js/libs/rain.js' // rain canvas
+import '/src/js/modules/rain.js' // rain canvas
 
 'use strict';
 
